@@ -1,0 +1,182 @@
+/* ========================================================
+   LAYOUT.CSS - CẤU TRÚC KHUNG, MENU VÀ FOOTER
+   ======================================================== */
+
+/* ------ THANH TOP BAR ------ */
+.top-bar {
+    background-color: var(--bg-dark);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 5%;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.top-links span {
+    color: var(--warning-yellow);
+}
+
+.nav-bar {
+    background-color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+    color: var(--white);
+    font-size: 2px;
+    font-weight: 900;
+    margin-right: auto;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a.dropbtn,
+.nav-links li > a {
+    color: var(--white);
+    padding: 20px 15px;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color 0.3 ease;
+}
+
+.nav-links li:hover .dropbtn,
+.nav-links li > a:hover {
+    background-color: var(--secondary-blue);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 280px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1001;
+    border-top: 3px solid var(--warning-yellow);
+    border-radius: 0 0 5px 5px;
+}
+
+.dropdown-content a {
+    color: var(--text-main) !important;
+    padding: 14px 20px;
+    display: block;
+    font-size: 13px;
+    font-weight: normal;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-blue) !important;
+    padding-left: 25px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.panel-section {
+    padding: 50px 5%;
+}
+
+.section-header {
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    color: var(--primary-blue);
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.divider {
+    height: 4px;
+    width: 80px;
+    background-color: var(--warning-yellow);
+}
+
+.panel-content {
+    width: 100%;
+}
+
+footer {
+    background-color: var(--bg-dark);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+    border-top: 4px solid var(--primary-blue);
+}
+
+footer p {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.page-view {
+    display: none;
+    animation: fadeIN 0.4s ease-in-out;
+    min-height: 70vh;
+}
+
+.page-view.active-view {
+    display: block;
+}
+
+#loading-screen {
+    display: none;
+    position: fixed;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 999;
+    text-align: center;
+    padding-top: 20vh;
+}
+
+#loading-screen.is-loading {
+    display: block;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--border-color);
+    border-top: 5px solid var(--primary-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px auto;
+}
+
+@keyframes fadeIN {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0px); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg)}
+}

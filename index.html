@@ -1,0 +1,604 @@
+<!--Phần đầu của html trước khi khai báo vào đầu trang web, để nhận diện chuẩn HTML5-->
+<!DOCTYPE html>
+<!--Khai báo ngôn ngữ của website-->
+<html lang="vi">
+<!--Phần đầu hoàn thiện-->
+
+<head>
+    <!--Chuẩn bộ unicode sử dụng trong toàn bộ khung xưởng html của web-->
+    <meta charset="UTF-8">
+    <!--Định dạng khớp với trang web, không bị vỡ hình khi mở bằng điện thoại, tỉ lệ scale 100%-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Tên của thẻ web trên trình duyệt-->
+    <title>CHÀO MỪNG ĐẾN VỚI WEBSITE CỦA XƯỞNG THIÊU KẾT 2</title>
+    <!--Phông của trang web, sử dụng robotto khung nền xanh-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!--Quy định script vẽ biểu đồ nằm ở script nào trong .js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--Quy định file đầu vào quy định định dạng style của trang web-->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+
+<!---->
+<!--Phần thân của trang web, nơi sẽ hiển thị các giao diện UI/UX và điều hướng của sổ sử dụng-->
+<body>
+    <!--Define thuộc tính của thẻ mở trên phía top các thẻ-->
+    <div class="top-bar">
+        <!--Tên của thẻ mở phía trên thanh menu-->
+        <span>WEBSITE NỘI BỘ XƯỞNG THIÊU KẾT 2 - NHÀ MÁY THIÊU KẾT VÊ VIÊN</span>
+        <!--Define status khi đang load trên-->
+        <div class="top-links">
+            <span id="last-updates">Cập nhật: Đang tải......</span>
+        </div>
+    </div>
+    <!--Thực hiện thiết kế thanh điều hướng san các nội dung của xưởng-->
+    <nav class="nav-bar">
+        <!--Define thuộc tính của logo xưởng Thiêu Kết (dùng logo hoà phát cân nhắc)-->
+        <div class="logo">XƯỞNG THIÊU KẾT 2</div>
+        <!--Define thuộc tính của tính năng navigate qua link của thanh điều hướng-->
+        <ul class="nav-links">
+
+            <!--Nội dung 1-->
+            <li class="dropdown"> <!--Cú pháp menu sổ xuống-->
+                <!--Tên của thẻ navigation-->
+                <a href="javascript:void(0)" class="dropbtn">GIỚI THIỆU TỔNG QUAN XƯỞNG THIÊU KẾT 2 ▾</a>
+                <!--Nội dung trong thẻ sẽ sổ xuống-->
+                <div class="dropdown-content">
+                    <!--Quy định đường link đến từng nội dung-->
+                    <a href="#so-do-cong-nghe">SƠ ĐỒ CÔNG NGHỆ - QUY TRÌNH SẢN XUẤT</a>
+                </div>
+            </li>
+
+            <!--Nội dung 2-->
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">SƠ ĐỒ TỔ CHỨC-NHÂN SỰ XƯỞNG THIÊU KẾT 2 ▾</a>
+                <div class="dropdown-content">
+                    <a href="#cap-quan-ly">QUẢN LÝ XƯỞNG</a>
+                    <a href="#kip-A">TỔ CHỨC - NHÂN SƯ KÍP A</a>
+                    <a href="#kip-B">TỔ CHỨC - NHÂN SỰ KÍP B</a>
+                    <a href="#kip-C">TỔ CHỨC - NHÂN SỰ KÍP C</a>
+                </div>
+            </li>
+
+            <!--Nội dung 3-->
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">TÌNH HÌNH SẢN XUẤT-CHẤT LƯỢNG ▾</a>
+                <div class="dropdown-content">
+                    <a href="#san-luong-theo-thang">SẢN LƯỢNG</a>
+                    <a href="#tieu-hao-san-xuat">TIÊU HAO SẢN XUẤT</a>
+                    <a href="#chat-luong">CHẤT LƯỢNG</a>
+                </div>
+            </li>
+
+            <!--Nội dung 4-->
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">AN TOÀN-AN NINH-5S,VSCN ▾</a>
+                <div class="dropdown-content">
+                    <a href="#an-toan">TÌNH HÌNH AN TOÀN TẠI XƯỞNG</a>
+                    <a href="#an-ninh">TÌNH HÌNH AN NINH TẠI XƯỞNG</a>
+                    <a href="#5s-vscn">TÌNH HÌNH 5S,VSCN TẠI XƯỞNG</a>
+                </div>
+            </li>
+
+            <!--Nội dung 5-->
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">HOẠT ĐỘNG,PHONG TRÀO-SÁNG KIẾN,ĐỔI MỚI ▾</a>
+                <div class="dropdown-content">
+                    <a href="#hoat-dong-phong-trao">HOẠT ĐỘNG,PHONG TRÀO</a>
+                    <a href="#sang-kien-doi-moi">SÁNG KIẾN, ĐỔI MỚI</a>
+                </div>
+            </li>
+
+            <!--Nội dung 6-->
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">ALBUM ẢNH</a>
+                <div class="dropdown-content">
+                    <a href="#album-anh">ALBUM ẢNH</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!--Làm background mờ với các ảnh chạy đằng sau-->
+    <div id="hero-slider" class="hero-section">
+
+        <!--Ảnh số 1 chạy-->
+        <div class="slide active" style="background-image: url('images/anh_so_1.jpg');">
+            <div class="slide-overlay"></div>
+            <div class="slide-text">WEBSITE NỘI BỘ XƯỞNG THIÊU KẾT 2</div>
+        </div>
+
+        <!--Ảnh số 2 là background-->
+        <div class="slide" style="background-image: url('images/anh_so_2.jpg');">
+            <div class="slide-overlay"></div>
+            <div class="slide-text">SẢN XUẤT AN TOÀN - HIỆU QUẢ - CHẤT LƯỢNG - TIẾT KIỆM</div>
+        </div>
+
+        <!--ẢNh số 3 là background-->
+        <div class="slide" style="background-image: url('images/anh_so_3.jpg');">
+            <div class="slide-overlay"></div>
+            <div class="slide-text">THỰC HIỆN TỐT 5S LÀ TRÁCH NHIỆM MỖI NGÀY-MỖI CA KÍP</div>
+        </div>
+    </div>
+
+    <!--1 số thông tin tổng quan cần đưa lên ngay trang đầu tiên-->
+    <section class="stats-ribbon"><!--Thuộc tính class-ribbon-->
+        <div class="stat-box">
+            <!--Sản lượng tính đến hiện tại-->
+            <h3>TỔNG SẢN LƯỢNG XƯỞNG KỲ NÀY</h3>
+            <!--Cài đặt để chờ load thông tin vào từ javascript-->
+            <p class="number" id="tong-san-luong">--<span>TẤN</span></p>
+        </div>
+
+        <!--Làm phông chữ nổi bật nằm ngay dưới, slogan-->
+        <div class="stat-box">
+            <h3>ĐẢM BẢO CHẤT LƯỢNG SẢN XUẤT</h3>
+            <!--Cài đặt để load dữ liệu vào từ javascript-->
+            <p class="number highlight-green" id="tb-loi">--<span>%</span></p>
+        </div>
+
+        <!--Làm phông chữ để display tình trạng hệ thống đang kết nối đến script tự động-->
+        <div class="stat-box">
+            <h3>TRẠNG THÁI HỆ THỐNG</h3>
+            <p class="number status-ok">KẾT NỐI TỐT!</p>
+        </div>
+    </section>
+
+    <!--Slogan trong hệ thống-->
+    <div class="news-ticker">
+        <div class="ticker-title">THÔNG BÁO CA KÍP:</div>
+        <div class="ticker-content">
+            <span class="ticker-text">
+                !!!CHÚ Ý TẬP TRUNG VẬN HÀNH THEO CHẾ ĐỘ CHO PHÉP, ĐẢM BẢO CHẤT LƯỢNG, SẢN LƯỢNG!!!
+                !!!CHÚC TOÀN THỂ ANH EM T/P KÍP, NHÂN VIÊN XƯỞNG CÓ 1 CA LÀM VIỆC AN TOÀN - HIỆU QUẢ - NĂNG SUẤT!!!
+            </span>
+        </div>
+    </div>
+    <!----------------------------------------------------->
+
+    <!--Tạo khung xương cho từng mục navigation trong thanh điều hướng-->
+    <section id="so-do-cong-nghe" class="panel-section">
+        <div class="section-header">
+            <h2>SƠ ĐỒ CÔNG NGHỆ - QUY TRÌNH SẢN XUẤT</h2>
+            <div class="divider"></div>
+        </div>
+        <!--Phần nội dung tách biệt với phần title-->
+        <div class="panel-content">
+            <p>Sơ đồ công nghệ của xưởng..cập nhật thêm</p>
+        </div>
+    </section>
+
+    <!--Tạo nội dung cho mục navigation-->
+    <section id="cap-quan-ly" class="panel-section bg-gray">
+        <div class="section-header">
+            <!--Đối với thẻ navigation quản lý xưởng-->
+            <h2>QUẢN LÝ XƯỞNG</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="panel-content personnel-grid">
+            <!--Thẻ của person đầu tiên-->
+            <div class="person-card">
+                <img src="images/quan-doc.jpg" alt="Quản đốc X.TK2" class="person-avatar"
+                    onerror="this.src='https://via.placeholder.com/150/0033a1/ffffff?text=AVATAR'"><!--Display avtar quản đốc-->
+                <!--Tạo thẻ person info cho quản đốc xưởng-->
+                <div class="person-info">
+                    <h4>Nguyễn Trung Đức</h4>
+                    <p class="role">Quản đốc xưởng</p>
+                    <span class="status status-online">Đang đương nhiệm</span>
+                </div>
+            </div>
+            <!-- Thẻ của person thứ hai, cuối cùng, vì định biên xưởng có 2 quản đốc-->
+            <div class="person-card">
+                <img src="images/pho-quan-doc.jpg" alt="Phó quản đốc X.TK2" class="person-avatar"
+                    onerror="this.src='https://via.placeholder.com/150/0033a1/ffffff?text=AVATAR'">
+                <div class="person-info">
+                    <h4>Phan Văn Dương</h4>
+                    <p class="role">Phó quản đốc xưởng</p>
+                    <span class="status status-online">Đang đương nhiệm</span>
+                </div>
+            </div>
+
+        </div>
+    <!--Kết thúc section display nhân sự của xưởng-->
+    </section>
+
+    <!--Section để display nhân sự của kíp A-->
+    <section id="kip-A" class="panel-section">
+        <div class="section-header">
+            <h2>TỔ CHỨC - NHÂN SỰ KÍP A</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="panel-content personnel-grid">
+            <!--Điền thêm thông tin nhân sự hiện có vào, thêm ảnh nếu được-->
+        </div>
+    </section>
+    <!--Section để display nhân sự của kíp B-->
+    <section id="kip-B" class="panel-section bg-gray">
+        <div class="section-header">
+            <h2>TỔ CHỨC - NHÂN SỰ KÍP B</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="panel-content personnel-grid">
+            <!--Điền thêm thông tin nhân sự hiện có vào, thêm ảnh nếu được-->
+        </div>
+    </section>
+    <!--Section để display nhân sự của kíp C-->
+    <section id="kip-C" class="panel-section bg-gray">
+        <div class="section-header">
+            <h2>TỔ CHỨC - NHÂN SỰ KÍP C</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="panel-content personnel-grid">
+            <!--Điền thêm thông tin nhân sự hiện có vào, thêm ảnh nếu được-->
+        </div>
+    </section>
+    <!--Khu vực hiển thị các biểu đồ liên quan đến sản lượng-->
+    <section id="san-luong-theo-thang" class="panel-section bg-gray"><!--Thẻ định nghĩa khu vực display các vấn đề liên quan đến sản lượng-->
+        <div class="section-header"><!--Section đầu tiên cho sản lượng-->
+            <h2>SẢN LƯỢNG</h2>
+            <div class="divider"></div>
+        </div>
+        <!--Thể hiện kế hoạch tháng này chúng ta cần sản xuất bao nhiêu % sản lượng-->
+        <div class="panel-content kpi-grid">
+            <div class="kpi-card">
+                <h3>Kế hoạch tháng (tấn)</h3>
+                <div id="kpi-target" class="kpi-value target">--</div>
+            </div>
+        </div>
+        <!--Thể hiện tháng này đã đạt bao nhiêu sản lượng-->
+        <div class="kpi-card">
+            <h3>Sản lượng đã đạt đến nay (tấn)</h3>
+            <div id="kpi-actual" class="kpi-value actual">--</div>
+            <div id="kpi-trend" class="kpi-trend">Đang cập nhật...</div>
+        </div>
+        <!--Thể hiện tỉ lệ đạt được sản lượng của tháng này-->
+        <div class="kpi-card">
+            <h3>Tỉ lệ đạt được sản lượng</h3>
+            <div id="kpi-percen" class="kpi-value persent">--%</div>
+            <div class="progress-bar-container">
+                <div id="kpi-progress-bar" class="progress-bar" style="width: 0%"></div>
+            </div>
+        </div>
+    </section>
+
+    <!--Khu vực hiển thị các chỉ số liên quan đến tiêu hao-->
+    <section id="tieu-hao-san-xuat" class="panel-section bg-gray">
+        <div class="section-header"><!--Tên của thẻ-->
+            <h2>TIÊU HAO SẢN XUẤT</h2>
+            <div class="divider"></div>
+        </div>
+        <!--Khu vực hiển thị các thông tin liên quan đến biểu đồ thể hiện tiêu hao than-->
+        <div class="panel-content coalconsume-grid">
+            <div class="coalconsume-chart">
+                <canvas id="coal-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+        </div>
+        <!--Khu vực hiển thị các thông tin liên quan đến biểu đồ thể hiện tiêu hao chất trợ dung, như vôi và dolomite-->
+        <div class="panel-content fluxconsume-grid">
+            <div class="fluxconsume-chart">
+                <canvas id="flux-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas><!--Thẻ canvas thay cho thẻ div cũ, dùng để display thư viện và nhận dữ liệu nạp vào từ js-->
+            </div>
+        </div>
+        <!--Tương tự như các thẻ tiêu hao trợ dung và than nói trên-->
+        <div class="panel-content electriconsume-grid">
+            <div class="electriconsume-chart">
+                <canvas id="electric-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+        </div>
+    
+        <div class="panel-content feoreconsume-grid">
+            <div class="feoreconsume-chart">
+                <canvas id="feoreconsume-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+        </div>
+
+        <div class="panel-content COconsume-grid">
+            <div class="COconsume-chart">
+                <canvas id="COconsume-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+        </div>
+
+        <div class="panel-content returnfinesrate-grid">
+            <div class="returnfinesrate-chart">
+                <canvas id="returnfinesrate-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+        </div>
+    </section>
+    <!--Khu vực hiển thị chất lượng sản phẩm-->
+    <section id="chat-luong" class="panel-section bg-gray">
+        <div class="section-header">
+            <h2>CHẤT LƯỢNG SẢN PHẨM</h2>
+            <div class="divider"></div>
+        </div>
+        <!--Đây là khu vực hiển thị các biểu đồ liên quan đến chất lượng nguyên nhiên liệu đầu vào-->
+        <div class="panel-content in_ingredient-grid">
+            <!--QUặng trung hoà/hay còn gọi là quặng trộn-->
+            <div class="blendingore-chart">
+                <canvas id="blendingore-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+            <!--Quặng hồi-->
+            <div class="returnfines-chart">
+                <canvas id="returnfines-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+            <!--Chất lượng than-->
+            <div class="coalquality-chart">
+                <canvas id="coalquality-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+        </div>
+        <!--Chát lượng của quặng thiêu kết thành phẩm-->
+        <div class="panel-content sinterore-grid">
+            <!--Thành phần hoá học của quặng-->
+            <div class="chemicalcomponent-chart">
+                <canvas id="chemicalcomponent-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+            <!--Phân bố cấp phối cỡ hạt của quặng-->
+            <div class="grainsizerate-chart">
+                <canvas id="grainsizerate-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+            <!--Biểu đồ thể hiện độ kiềm-->
+            <div class="basicility-chart">
+                <canvas id="basicility-chart"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+        </div>
+    </section>
+    <!--Khu vực hiển thị các nội dung an toàn-->
+    <section id="an-toan" class="panel-section bg-gray">
+        <!--header của nó trên thanh navigation bar-->
+        <div class="section-header">
+            <h2>TÌNH HÌNH AN TOÀN KHI TẠI Ở XƯỞNG</h2>
+            <div class="divider"></div>
+        </div>
+        <!--Thể hiện nội dung-->
+        <div class="panel-content bg-gray" style="border-radius: 8px; padding: 20px; margin-bottom: 30px">
+            <h3 style="color: #2c3e50; margin-top: 0;">Thống kê vi phạm an toàn (Theo tháng)</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Kíp</th>
+                        <th>Nội dung vi phạm</th>
+                        <th>Trạng thái xử lý</th>
+                    </tr>
+                </thead>
+                <tbody id="safety-table-body">
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #888;">Đang tải nội dung....</td>
+                    </tr><!--Nạp dữ liệu vào từ các file js-->
+                </tbody>
+            </table>
+        </div>
+        <!--Display các nội dung liên quan đến cải thiện an toàn trong tháng-->
+        <div class="panel-content bg-gray" 
+            style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 30px;">
+            <!--Dòng chữ chạy thể hiện các hạng mục đã hoàn thiện-->
+            <h3
+                style="color: #27ae60; margin-top: 0; border-bottom: 2px solid #ecf0f1; padding: 20px; padding-bottom: 10px;">
+                ✔️ Các hạng mục cải thiện an toàn đã hoàn thiện trong tháng
+            </h3>
+            <!--Display các thành tích đạt được trong tháng-->
+            <div class="safety-achive-grid" id="safety-achieve-grid">
+                <p style="color: #888; font-style: italic;">Đang tải dữ liệu vào..</p>
+            </div>
+        </div>
+    </section>
+
+    <!--Khu vực hiển thị các nội dung về an ninh-->
+    <section id="an-ninh" class="panel-section bg-gray">
+        <div class="section-header">
+            <h2>TÌNH HÌNH AN NINH TẠI XƯỞNG</h2>
+            <div class="divider"></div>
+        </div>
+        <!--layout thể hiện các tình hình an ninh của xưởng-->
+        <div class="panel-content security-layout">
+            <div class="security-status-card"><!--Thẻ security-->
+                <!--Display rằng tình hình an ninh tại xưởng đang tốt, nghiên cứu cập nhật với javascript-->
+                <div id="security-indicator" class="status-circle status-good">
+                    <span id="securtiy-status-text">TỐT</span><!--Đây là chỗ cần thay thế-->
+                </div>
+                <!--Dòng chữ display trạng thái an ninh, nghiên cứu để đổ dữ liệu từ javascript-->
+                <h3>Tình hình an ninh tháng này</h3>
+                <p id="security-summary">Không ghi nhận trường hợp vi phạm nội quy nào.</p>
+            </div>
+            <!--Bảng biểu thị tình hình an ninh tại xưởng-->
+            <div class="security-table-container">
+                <table class="data-table">
+                    <!--Display chi tiết tình hình vi phạm-->
+                    <thead>
+                        <tr>
+                            <th>Ngày</th>
+                            <th>Kíp</th>
+                            <th>Vụ việc</th>
+                            <th>Đánh giá</th>
+                            <th>Xử lý</th>
+                        </tr>
+                    </thead>
+                    <!--Thẻ thể hiện đang load dữ liệu vào từ javascript-->
+                    <tbody id="security-table-body">
+                        <tr>
+                            <td colspan="5" style="text-align: center; color: #888;">Đang load dữ liệu vào...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Thể hiện tình hình an toàn tại xưởng, có đảm hay khong-->
+        <div class="security-comment-card">
+            <div class="comment-label">NHẬN XÉT:</div>
+            <div class="marquee-container">
+                <div id="security-marquee-text" class="marquee-content">
+                    Đang tải nhận xét an ninh từ dữ liệu nguồn...
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Khu vực display tình hình an ninh tại xưởng-->
+    <section id="5s-vscn" class="panel-section bg-gray">
+        <div class="section-header">
+            <h2>TÌNH HÌNH 5S,VSCN TẠI XƯỞNG</h2>
+            <div class="divider"></div>
+        </div>
+        <!--Bảng content cần display-->
+        <div class="panel-content bg-gray" style="border-radius: 8px; padding: 20px;">
+            <!--Thư viện hình ảnh-->    
+            <div class="gallery-tabs">
+                <button class="tab-btn active" onclick="openGalleryTab(event, 'thuc-hien')">🧹 Công tác thực hiện
+                    5S</button>
+                <button class="tab-btn" onclick="openGalleryTab(event, 'khac-phuc')">Khắc phục các lỗi 5s</button>
+            </div>
+            <!--Thẻ thể hiện các công việc đã khắc phục -->
+            <div id="thuc-hien" class="gallery-tab-contents" style="display: block;">
+                <div class="masonry-grid" id="grid-thuc-hien"></div>
+            </div>
+            <!--Thẻ thể hiện các lỗi đã khắc phục-->
+            <div id="khac-phuc" class="gallery-tab-contents" style="display: none;">
+                <div class="masonry-grid" id="grid-khac-phuc"></div>
+            </div>
+        </div>
+    </section>
+    <!--Khu vực thể hiện các hoạt động phong trào-->
+    <section id="hoat-dong-phong-trao" class="panel-section bg-gray">
+        <div class="section-header">
+            <h2>HOẠT ĐỘNG, PHONG TRÀO TẠI XƯỞNG</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="panel-content">
+            <div class="activity-slider-container">
+                <div class="act-slide act-active">
+                    <img src="images/hdpt-1.jpg" alt="Hoạt động 1"
+                        onerror="this.src='https://via.placeholder.com/800x450/0033a1/ffffff?text=TỔ+CHỨC+LIÊN+HOAN+KÍP'">
+                    <div class="act-caption">Liên hoan ăn nhậu kíp</div>
+                </div>
+
+                <div class="act-slide">
+                    <img src="images/hdpt-2.jpg" alt="Hoạt động 2"
+                        onerror="this.src='https://via.placeholder.com/800x450/0033a1/ffffff?text=TẤT+NIÊN+XƯỞNG+CUỐI+NĂM'">
+                    <div class="act-caption">Tất niên xưởng cuối năm</div>
+                </div>
+
+                <div class="act-slide">
+                    <img src="images/hdpt-3.jpg" alt="Hoạt động 3"
+                        onerror="this.src='https://via.placeholder.com/800x450/0033a1/ffffff?text=LÌ+XÌ+ĐẦU+NĂM'">
+                    <div class="act-caption">Lì xì, trao lộc đầu năm</div>
+                </div>
+
+                <div class="act-slide">
+                    <img src="images/hdpt-4.jpg" alt="Hoạt động 4"
+                        onerror="this.src='https://via.placeholder.com/800x450/0033a1/ffffff?text=HOẠT+ĐỘNG+4'">
+                    <div class="act-caption">Hoạt động 4</div>
+                </div>
+
+                <div class="act-slide">
+                    <img src="images/hdpt-5.jpg" alt="Hoạt động 5"
+                        onerror="this.src='https://via.placeholder.com/800x450/0033a1/ffffff?text=HOẠT+ĐỘNG+5'">
+                    <div class="act-caption">Hoạt động 5</div>
+                </div>
+            </div>
+
+            <h3 class="hightlight-title">⭐ TIÊU ĐIỂM PHONG TRÀO ⭐</h3>
+
+            <div class="activity-highlights-grid">
+                <div class="highlight-card">
+                    <div class="hightlight-img-wrapper">
+                        <img src="images/pthd-1.jpg" alt="Phong trào 1"
+                            onerror="this.src='https://via.placeholder.com/600x350/c0392b/ffffff?text=TOP+ĐÀO+TẠO+NHÀ+MÁY'">
+                        <div class="star-badge">Top đào tạo nhà máy</div>
+                    </div>
+                    <div class="highlight-info">
+                        <h4>Chỉ tiêu đào tạo thường niên ở nhà máy</h4>
+                        <p>Xưởng thiêu kết 2 nằm trong top 15</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Khu vực display các sáng kiến đổi mới-->
+    <section id="sang-kien-doi-moi" class="panel-section bg-gray">
+        <div class="section-header">
+            <h2>SÁNG KIẾN,ĐỔI MỚI</h2>
+            <div class="divider"></div>
+        </div>
+        <!--Bảng display các sáng kiến đổi mới đến hiện tại-->
+        <div class="panel-content kpi-grid" style="margin-bottom: 40px;">
+            <div class="kpi-card" style="border-top-color: #8e44ad;">
+                <h3>Tổng số sáng kiến tính đến hiện tại</h3>
+                <div id="kpi-sk-total" class="kpi-value actual" style="color: #8e44ad;">--</div>
+                <div id="kpi-sk-completed" class="kpi-trend up">Đã hoàn thiện và áp dụng cải tiến--</div>
+            </div>
+            <!--Thẻ display giá trị làm lợi ước tính, dữ liệu cũng được nạp từ js vào-->
+            <div class="kpi-card" style="border-top-color: #f39c12;">
+                <h3>Giá trị làm lợi ước tính</h3>
+                <div id="kpi-sk-value" class="kpi-value actual" style="color: #f39c12;">-- VNĐ</div>
+                <div class="kpi-trend">Tiết kiệm chi phí cho công ty</div>
+            </div>
+        </div>
+        <!--Display các sáng kiến tiêu biểu của nhân viên xưởng-->
+        <div class="panel-content" style="margin-bottom: 40px;">
+            <h3 style="text-align: center; color: #2c3e50; margin-bottom: 20px;">🌟 CÁC SÁNG KIẾN TIÊU BIỂU 🌟</h3>
+
+            <div class="sk-slider-viewport">
+                <div id="sk-slider-track" class="sk-slider-track">
+                    <div style="width: 100%; text-align: center; padding: 40px; color: #888">
+                        Đang nạp dữ liệu sáng kiến từ Google Sheets...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Bảng thống kê các sáng kiến tiêu biểu của xưởng-->
+        <div class="panel-content">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">STT</th>
+                        <th>Tên sáng kiến/ cải tiến</th>
+                        <th>Tác giả/ Nhóm</th>
+                        <th>Lĩnh vực</th>
+                        <th style="width: 200px;">Tiến độ triển khai</th>
+                    </tr>
+                </thead>
+                <tbody id="sk-table-body">
+                    <tr>
+                        <td colspan="5" style="text-align: center;">Đang đồng bộ danh sách</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+<footer>
+    <p>Copyright &copy; 2026 - Sản phẩm phát triển phục vụ riêng cho portfolio Xưởng Thiêu Kết 2 - Không phục vụ mục đích thương mại</p>
+    <p>Thông tin chi tiết về sản phẩm liên hệ với KTV phòng kỹ thuật nhà máy Thiêu kết - Vê Viên</p>
+</footer>
+
+<script src="js/api/googlesheetapi.js"></script>
+<script src="js/components/slider.js"></script>
+<script src="js/components/tabs.js"></script>
+<script src="js/sections/"></script>
+</body>
+</html>
