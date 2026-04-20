@@ -1,27 +1,86 @@
 /* ===========================================
    CÁC THÀNH PHẦN GIAO DIỆN XƯỞNG
    =========================================== */
-
-.news-ticker {
-    display: flex;
-    background-color: var(--danger-red);
-    color: var(--white);
-    align-items: center;
-    height: 40px;
-    font-size: 14px;
-    font-weight: bold;
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-dark);
     overflow: hidden;
 }
 
+.slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 20, 60, 0.4);
+    backdrop-filter: blur(1px);
+    z-index: 3;
+}
+
+.slide-text {
+    position: relative;
+    z-index: 4;
+    color: var(--white);
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    letter-spacing: 2px;
+    padding: 0 5%;
+    text-shadow: 0px 4px 20px rgba(0,0,0,0.8);
+    animation: textPopUp 1s ease forwards;
+}
+
+@keyframes textPopUp {
+    0% { transform: translateY(30px) scale(0.9); opacity: 0;}
+    100% { transform: translateY(0) scale(1); opacity: 1;}
+}
+
+.news-ticker {
+    display: flex;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    color: var(--white);
+    align-items: center;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto 40px auto;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+    border-radius: 0 0 8px 8px;
+}
+
 .ticker-title {
-    background-color: #c0392b;
+    background-color: #900;
     padding: 0 20px;
     height: 100%;
     align-items: center;
     display: flex;
     z-index: 10;
     white-space: nowrap;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .ticker-content {
@@ -33,19 +92,26 @@
 .ticker-text {
     display: inline-block;
     padding-left: 100%;
-    animation: tickerScroll 30s linear infinite;
+    animation: tickerScroll 20s linear infinite;
+    color: var(--danger-red);
 }
 
-@keyframes tickerSroll {
+@keyframes tickerScroll {
     0% { transform: translate(0, 0); }
     100% { transform: translate(-100%, 0); }
 }
 
 .stats-ribbon {
+    position: relative;
+    z-index: 10;
     display: flex;
     background-color: var(--white);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 -10px 25px rgba(0,0,0,0.15);
+    margin-top: -80px;
+    border-radius: 8px 8px 0 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .stat-box {
@@ -145,7 +211,7 @@
     .person-avatar {
         width: 150px;
         height: 150px;
-        
+
     }
 }
 .status-online { background-color: #e6f4ea; color: #1e8e3e; }

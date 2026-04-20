@@ -20,14 +20,17 @@
 }
 
 .nav-bar {
-    background-color: var(--primary-blue);
+    background-color: rgba(0, 51, 161, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: flex;
     align-items: center;
     padding: 0 5%;
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 40px;
+    width: 100%;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .logo {

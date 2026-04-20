@@ -16,9 +16,9 @@
     <!--Quy định script vẽ biểu đồ nằm ở script nào trong .js-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!--Quy định file đầu vào quy định định dạng style của trang web-->
-    <link rel="stylesheet" href="css/base.css?v=1.1">
-    <link rel="stylesheet" href="css/components.css?v=1.1">
-    <link rel="stylesheet" href="css/layout.css?v=1.1">
+    <link rel="stylesheet" href="css/base.css?v=1.2">
+    <link rel="stylesheet" href="css/components.css?v=1.2">
+    <link rel="stylesheet" href="css/layout.css?v=1.2">
 </head>
 
 <!---->
@@ -100,63 +100,64 @@
             </li>
         </ul>
     </nav>
+    <div id="trang-chu" class="page-view active-view">
+        <!--Làm background mờ với các ảnh chạy đằng sau-->
+        <div id="hero-slider" class="hero-section">
 
-    <!--Làm background mờ với các ảnh chạy đằng sau-->
-    <div id="hero-slider" class="hero-section">
+            <!--Ảnh số 1 chạy-->
+            <div class="slide active" style="background-image: url('images/anh_so_1.jpg');">
+                <div class="slide-overlay"></div>
+                <div class="slide-text">WEBSITE NỘI BỘ XƯỞNG THIÊU KẾT 2</div>
+            </div>
 
-        <!--Ảnh số 1 chạy-->
-        <div class="slide active" style="background-image: url('images/anh_so_1.jpg');">
-            <div class="slide-overlay"></div>
-            <div class="slide-text">WEBSITE NỘI BỘ XƯỞNG THIÊU KẾT 2</div>
+            <!--Ảnh số 2 là background-->
+            <div class="slide" style="background-image: url('images/anh_so_2.jpg');">
+                <div class="slide-overlay"></div>
+                <div class="slide-text">SẢN XUẤT AN TOÀN - HIỆU QUẢ - CHẤT LƯỢNG - TIẾT KIỆM</div>
+            </div>
+
+            <!--ẢNh số 3 là background-->
+            <div class="slide" style="background-image: url('images/anh_so_3.jpg');">
+                <div class="slide-overlay"></div>
+                <div class="slide-text">THỰC HIỆN TỐT 5S LÀ TRÁCH NHIỆM MỖI NGÀY-MỖI CA KÍP</div>
+            </div>
         </div>
 
-        <!--Ảnh số 2 là background-->
-        <div class="slide" style="background-image: url('images/anh_so_2.jpg');">
-            <div class="slide-overlay"></div>
-            <div class="slide-text">SẢN XUẤT AN TOÀN - HIỆU QUẢ - CHẤT LƯỢNG - TIẾT KIỆM</div>
-        </div>
+        <!--1 số thông tin tổng quan cần đưa lên ngay trang đầu tiên-->
+        <section class="stats-ribbon"><!--Thuộc tính class-ribbon-->
+            <div class="stat-box">
+                <!--Sản lượng tính đến hiện tại-->
+                <h3>TỔNG SẢN LƯỢNG XƯỞNG KỲ NÀY</h3>
+                <!--Cài đặt để chờ load thông tin vào từ javascript-->
+                <p class="number" id="tong-san-luong">--<span>TẤN</span></p>
+            </div>
 
-        <!--ẢNh số 3 là background-->
-        <div class="slide" style="background-image: url('images/anh_so_3.jpg');">
-            <div class="slide-overlay"></div>
-            <div class="slide-text">THỰC HIỆN TỐT 5S LÀ TRÁCH NHIỆM MỖI NGÀY-MỖI CA KÍP</div>
+            <!--Làm phông chữ nổi bật nằm ngay dưới, slogan-->
+            <div class="stat-box">
+                <h3>ĐẢM BẢO CHẤT LƯỢNG SẢN XUẤT</h3>
+                <!--Cài đặt để load dữ liệu vào từ javascript-->
+                <p class="number highlight-green" id="tb-loi">--<span>%</span></p>
+            </div>
+
+            <!--Làm phông chữ để display tình trạng hệ thống đang kết nối đến script tự động-->
+            <div class="stat-box">
+                <h3>TRẠNG THÁI HỆ THỐNG</h3>
+                <p class="number status-ok">KẾT NỐI TỐT!</p>
+            </div>
+        </section>
+
+        <!--Slogan trong hệ thống-->
+        <div class="news-ticker">
+            <div class="ticker-title">THÔNG BÁO CA KÍP:</div>
+            <div class="ticker-content">
+                <span class="ticker-text">
+                    !!!CHÚ Ý TẬP TRUNG VẬN HÀNH THEO CHẾ ĐỘ CHO PHÉP, ĐẢM BẢO CHẤT LƯỢNG, SẢN LƯỢNG!!!
+                    !!!CHÚC TOÀN THỂ ANH EM T/P KÍP, NHÂN VIÊN XƯỞNG CÓ 1 CA LÀM VIỆC AN TOÀN - HIỆU QUẢ - NĂNG SUẤT!!!
+                </span>
+            </div>
         </div>
+        <!----------------------------------------------------->
     </div>
-
-    <!--1 số thông tin tổng quan cần đưa lên ngay trang đầu tiên-->
-    <section class="stats-ribbon"><!--Thuộc tính class-ribbon-->
-        <div class="stat-box">
-            <!--Sản lượng tính đến hiện tại-->
-            <h3>TỔNG SẢN LƯỢNG XƯỞNG KỲ NÀY</h3>
-            <!--Cài đặt để chờ load thông tin vào từ javascript-->
-            <p class="number" id="tong-san-luong">--<span>TẤN</span></p>
-        </div>
-
-        <!--Làm phông chữ nổi bật nằm ngay dưới, slogan-->
-        <div class="stat-box">
-            <h3>ĐẢM BẢO CHẤT LƯỢNG SẢN XUẤT</h3>
-            <!--Cài đặt để load dữ liệu vào từ javascript-->
-            <p class="number highlight-green" id="tb-loi">--<span>%</span></p>
-        </div>
-
-        <!--Làm phông chữ để display tình trạng hệ thống đang kết nối đến script tự động-->
-        <div class="stat-box">
-            <h3>TRẠNG THÁI HỆ THỐNG</h3>
-            <p class="number status-ok">KẾT NỐI TỐT!</p>
-        </div>
-    </section>
-
-    <!--Slogan trong hệ thống-->
-    <div class="news-ticker">
-        <div class="ticker-title">THÔNG BÁO CA KÍP:</div>
-        <div class="ticker-content">
-            <span class="ticker-text">
-                !!!CHÚ Ý TẬP TRUNG VẬN HÀNH THEO CHẾ ĐỘ CHO PHÉP, ĐẢM BẢO CHẤT LƯỢNG, SẢN LƯỢNG!!!
-                !!!CHÚC TOÀN THỂ ANH EM T/P KÍP, NHÂN VIÊN XƯỞNG CÓ 1 CA LÀM VIỆC AN TOÀN - HIỆU QUẢ - NĂNG SUẤT!!!
-            </span>
-        </div>
-    </div>
-    <!----------------------------------------------------->
 
     <!--Tạo khung xương cho từng mục navigation trong thanh điều hướng-->
     <section id="so-do-cong-nghe" class="panel-section">
