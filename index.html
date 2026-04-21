@@ -16,9 +16,9 @@
     <!--Quy định script vẽ biểu đồ nằm ở script nào trong .js-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!--Quy định file đầu vào quy định định dạng style của trang web-->
-    <link rel="stylesheet" href="css/base.css?v=1.2">
-    <link rel="stylesheet" href="css/components.css?v=1.2">
-    <link rel="stylesheet" href="css/layout.css?v=1.2">
+    <link rel="stylesheet" href="css/base.css?v=1.3">
+    <link rel="stylesheet" href="css/components.css?v=1.3">
+    <link rel="stylesheet" href="css/layout.css?v=1.3">
 </head>
 
 <!---->
@@ -271,41 +271,81 @@
             <div class="divider"></div>
         </div>
         <!--Khu vực hiển thị các thông tin liên quan đến biểu đồ thể hiện tiêu hao than-->
-        <div class="panel-content coalconsume-grid">
-            <div class="coalconsume-chart">
-                <canvas id="coal-chart"
-                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+        <div class="panel-content coalconsume-grid" style="display: flex; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+            <div class="coalconsume-chart-tk3" style="flex: 1; min-width: 400px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">DÂY CHUYỀN THIÊU KẾT 3</h3>
+                <canvas id="coal-chart-tk3"
+                    style="width: 100%; height: 350px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+
+            <div class="coalconsume-chart-tk4" style="flex: 1; min-width: 400px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">DÂY CHUYỀN THIÊU KẾT 4</h3>
+                <canvas id="coal-chart-tk3"
+                    style="width: 100%; height: 350px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
                 </canvas>
             </div>
         </div>
         <!--Khu vực hiển thị các thông tin liên quan đến biểu đồ thể hiện tiêu hao chất trợ dung, như vôi và dolomite-->
-        <div class="panel-content fluxconsume-grid">
-            <div class="fluxconsume-chart">
-                <canvas id="flux-chart"
+        <div class="panel-content fluxconsume-grid" style="display: flex; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+            <div class="fluxconsume-chart-tk3" style="flex: 1; min-width: 400px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">DÂY CHUYỀN THIÊU KẾT 3</h3>
+                <canvas id="flux-chart-3"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas><!--Thẻ canvas thay cho thẻ div cũ, dùng để display thư viện và nhận dữ liệu nạp vào từ js-->
+            </div>
+
+            <div class="fluxconsume-chart-tk4" style="flex: 1; min-width: 400px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">DÂY CHUYỀN THIÊU KẾT 4</h3>
+                <canvas id="flux-chart-4"
                     style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
                 </canvas><!--Thẻ canvas thay cho thẻ div cũ, dùng để display thư viện và nhận dữ liệu nạp vào từ js-->
             </div>
         </div>
         <!--Tương tự như các thẻ tiêu hao trợ dung và than nói trên-->
         <div class="panel-content electriconsume-grid">
-            <div class="electriconsume-chart">
-                <canvas id="electric-chart"
+            <div class="electriconsume-chart-tk3" style="display: flex; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+                <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">DÂY CHUYỀN THIÊU KẾT 3</h3>
+                <canvas id="electric-chart-tk3"
                     style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
                 </canvas>
             </div>
-        </div>
-    
-        <div class="panel-content feoreconsume-grid">
-            <div class="feoreconsume-chart">
-                <canvas id="feoreconsume-chart"
-                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
-                </canvas>
-            </div>
-        </div>
 
+            <div class="electriconsume-chart-tk4" style="display: flex; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+                <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">DÂY CHUYỀN THIÊU KẾT 4</h3>
+                <canvas id="electric-chart-tk4"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+        </div>
+        <!----------------------------------------------------------->
+        <div class="panel-content feoreconsume-grid">
+            <div class="feoreconsume-chart-tk3" style="display: flex; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+                <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">DÂY CHUYỀN THIÊU KẾT 3</h3>
+                <canvas id="feoreconsume-chart-tk3"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+
+            <div class="feoreconsume-chart-tk4" style="display: flex; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+                <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">DÂY CHUYỀN THIÊU KẾT 4</h3>
+                <canvas id="feoreconsume-chart-tk4"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+        </div>
+        <!----------------------------------------------------------->
         <div class="panel-content COconsume-grid">
-            <div class="COconsume-chart">
-                <canvas id="COconsume-chart"
+            <div class="COconsume-chart-tk3" style="display: flex; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+                <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">DÂY CHUYỀN THIÊU KẾT 3</h3>
+                <canvas id="COconsume-chart-tk3"
+                    style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
+                </canvas>
+            </div>
+
+            <div class="COconsume-chart-tk4" style="display: flex; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+                <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">DÂY CHUYỀN THIÊU KẾT 4</h3>
+                <canvas id="COconsume-chart-tk4"
                     style="width: 100%; height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
                 </canvas>
             </div>
@@ -591,7 +631,10 @@
             </table>
         </div>
     </section>
-
+    <div id="loading-screen">
+        <div class="spinner"></div>
+        <h3 style="color :var(--primary-blue); margin-top: 20px">ĐANG KẾT NỐI DỮ LIỆU</h3>
+    </div>
 <footer>
     <p>Copyright &copy; 2026 - Sản phẩm phát triển phục vụ riêng cho portfolio Xưởng Thiêu Kết 2 - Không phục vụ mục đích thương mại</p>
     <p>Thông tin chi tiết về sản phẩm liên hệ với KTV phòng kỹ thuật nhà máy Thiêu kết - Vê Viên</p>
