@@ -1,19 +1,20 @@
 /* ===========================================
-   CÁC THÀNH PHẦN GIAO DIỆN XƯỞNG
+        CÁC THÀNH PHẦN GIAO DIỆN XƯỞNG
    =========================================== */
 .hero-section {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 120vh;
     background-color: var(--bg-dark);
     overflow: hidden;
+    
 }
 
 .slide {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
     display: flex !important;
@@ -216,3 +217,58 @@
 }
 .status-online { background-color: #e6f4ea; color: #1e8e3e; }
 .status-offline { background-color: #fce8e6; color: #d93025; }
+
+/* ------------------------------------------------------------------ */
+
+.page-view {
+    display: none;
+    animation: fadeIN 0.4s ease-in-out;
+    min-height: 70vh;
+}
+
+.page-view.active-view {
+    display: block;
+}
+
+/* ------------------------------------------------------------------- */
+
+#loading-screen {
+    display: none;
+    position: fixed;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 999;
+    text-align: center;
+    padding-top: 20vh;
+}
+
+#loading-screen.is-loading {
+    display: block;
+}
+
+/* -------------------------------------------------------------------- */
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--border-color);
+    border-top: 5px solid var(--primary-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px auto;
+}
+
+/* --------------------------------------------------------------------- */
+
+@keyframes fadeIN {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0px); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg)}
+}

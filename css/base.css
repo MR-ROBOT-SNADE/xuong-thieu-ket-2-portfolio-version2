@@ -14,6 +14,8 @@ BASE.CSS - CÀI ĐẶT NỀN TẢNG VÀ BIẾN MÀU SẮC
     --text-muted: #7f8c8d; /* Màu chữ phụ, chú thích */
     --white: #ffffff; /* Màu nền trắng */
     --border-color: #ecf0f1; /* Màu đường viền nhạt */
+    --coal-consumeCcd: #a40db8; /* Màu tiêu hao than ccd */
+    --coal-consumeNhietri: #ed5126;/* màu tiêu hao than nhiệt trị */
 }
 /* Reset CSS, xóa các khoảng trắng thừa trên nền tảng html ban đầu */
 * {
@@ -66,4 +68,10 @@ a {
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     border-radius: 4px;
     background-color: var(--white);
+}
+
+@media screen and (max-width: 1080px){
+    body {
+        zoom: 0.9;
+    }
 }
