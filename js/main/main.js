@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", () => {
     loadCoalConsumeDataTK3();
 
-    const TIME_INTERVAL = 10000;
+    const TIME_INTERVAL = 28800000;
 
     setInterval(() => {
         console.log("Đã qua 6 tiếng. Đang tự động lấy dữ liệu mới từ dữ liệu nguồn");
