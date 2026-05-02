@@ -1,4 +1,9 @@
 /* HỆ THỐNG VẼ BIỂU ĐỒ TỪ DỮ LIỆU CẬP NHẬT TỪ GOOGLESHEET API */
+Chart.register(ChartDataLabels);
+
+
+
+
 
 let chartInstances = {};
 let isFlashing = false;
@@ -113,7 +118,30 @@ function drawDashBoardChart(canvasId, labels, dataNhietri, dataCcd, dataTrungbin
                     grid: { drawOnChartArea: false }
                 }
             },
-            plugins: { legend: {position: 'top' }}
+            plugins: { 
+                legend: {position: 'top' },
+                datalabels: {
+                    display: function(context) {
+                        const totalDay = context.chart.data.labels.length;
+
+                        if (totalDay > 60) {
+                            return false;
+                        }
+
+                        return context.dataset.type === 'bar';
+                    },
+                    color: '#2c3e50',
+                    anchor: 'end',
+                    align: 'top',
+                    font: {
+                        weight: 'bold',
+                        size: 11
+                    },
+                    formatter: function(value) {
+                        return value;
+                    }
+                }
+            }
         }   
     });
 }
@@ -126,6 +154,8 @@ function applyFilterTK3() {
     if (!window.originalTK3data) return;
     const startDateStr = document.getElementById('startDateFilterTK3').value;
     const endDateStr = document.getElementById('endDateFilterTK3').value;
+    const isDateFiltered = (startDateStr !== "" || endDateStr !== "");
+
     const shiftFilter = document.getElementById('shiftFilterTK3').value;
 
     const startTimestamp = startDateStr ? new Date(startDateStr).getTime() : null;
@@ -162,20 +192,49 @@ function applyFilterTK3() {
         }
     });
     
-    drawDashBoardChart('coal-chart-tk3', flabels, fNhietri, fCcd, fTrungbinh, fTichluy);
+    drawDashBoardChart('coal-chart-tk3', flabels, fNhietri, fCcd, fTrungbinh, fTichluy, isDateFiltered);
 }
 
 function clearFilterTK3() {
     document.getElementById('startDateFilterTK3').value = "";
     document.getElementById('endDateFilterTK3').value = ""; 
     document.getElementById('shiftFilterTK3').value="all";
-    if (window.originalTK3data) {
-        drawDashBoardChart('coal-chart-tk3',
-            [...window.originalTK3data.labels],
-            [...window.originalTK3data.dataNhietri],
-            [...window.originalTK3data.dataCcd],
-            [...window.originalTK3data.dataTrungbinh],
-            [...window.originalTK3data.dataTichluy]
-        );
-    }
+
+    if (!window.originalTK3data || window.originalTK3data.labels.length === 0) return;
+
+    const uniqueDates = [];
+
+    window.originalTK3data.labels.forEach((label, index) => {
+        const parts = label.split(' - ');
+        const datePart = parts[0] ? parts[0].trim()  : "";
+
+        const nhietriVal = window.originalTK3data.dataNhietri[index];
+
+        if (datePart && !isNaN(nhietriVal) && nhietriVal > 0) {
+            if (!uniqueDates.includes(datePart)) {
+                uniqueDates.push(datePart);
+            }
+        }
+    });
+
+    const latest7Days = uniqueDates.slice(-7);
+
+    let flabels = [], fNhietri = [], fCcd = [], fTrungbinh = [], fTichluy = [];
+
+    window.originalTK3data.labels.forEach((label, index) => {
+        const parts = label.split(' - ');
+        const datePart = parts[0] ? parts[0].trim() : "";
+        const nhietriVal = window.originalTK3data.dataNhietri[index];
+
+        if (latest7Days.includes(datePart) && !isNaN(nhietriVal) && nhietriVal > 0) {
+            flabels.push(label);
+            fNhietri.push(window.originalTK3data.dataNhietri[index]);
+            fCcd.push(window.originalTK3data.dataCcd[index]);
+            fTrungbinh.push(window.originalTK3data.dataTrungbinh[index]);
+            fTichluy.push(window.originalTK3data.dataTichluy[index]);
+        }
+    });
+
+    drawDashBoardChart('coal-chart-tk3', flabels, fNhietri, fCcd, fTrungbinh, fTichluy);
+    
 }

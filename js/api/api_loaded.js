@@ -39,13 +39,7 @@ async function loadCoalConsumeDataTK3() {
             }
         });
 
-        drawDashBoardChart('coal-chart-tk3', 
-            [...window.originalTK3data.labels],
-            [...window.originalTK3data.dataNhietri],
-            [...window.originalTK3data.dataCcd],
-            [...window.originalTK3data.dataTrungbinh],
-            [...window.originalTK3data.dataTichluy]
-        );
+        clearFilterTK3();
 
     } catch (error) {
         console.error("Lỗi tải dữ liệu TK3", error);
