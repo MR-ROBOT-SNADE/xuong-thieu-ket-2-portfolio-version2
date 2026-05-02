@@ -1,6 +1,15 @@
 /* HỆ THỐNG VẼ BIỂU ĐỒ TỪ DỮ LIỆU CẬP NHẬT TỪ GOOGLESHEET API */
 
 let chartInstances = {};
+let isFlashing = false;
+window.originalTK3data = null;
+
+setInterval(() => {
+    isFlashing = !isFlashing;
+    Object.values(chartInstances).forEach(chart => {
+        if(chart) chart.update('none');
+    });
+}, 500);
 
 function getCSSvariable(variableName) {
     return getComputedStyle(document.documentElement).getPropertyValue(variableName).trim()
@@ -18,7 +27,7 @@ function drawDashBoardChart(canvasId, labels, dataNhietri, dataCcd, dataTrungbin
 
     const ctx = canvas.getContext('2d');
 
-    new Chart(ctx, {
+    chartInstances[canvasId] = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labels,
@@ -30,9 +39,11 @@ function drawDashBoardChart(canvasId, labels, dataNhietri, dataCcd, dataTrungbin
                     borderColor: getCSSvariable('--danger-red') || '#e74c3c',
                     backgroundColor: getCSSvariable('--white') || '#ffffff',
                     borderWidth: 2,
-                    tension: 0.3,
+                    tension: 0.4,
+                    pointStyle: 'triangle',
+                    radius: 4,
                     fill: false,
-                    yAxisID: 'y',
+                    yAxisID: 'y_primary',
                     order: 1
                 },
                 {
@@ -42,30 +53,45 @@ function drawDashBoardChart(canvasId, labels, dataNhietri, dataCcd, dataTrungbin
                     borderColor: getCSSvariable('--warning-yellow') || '#f39c12',
                     backgroundColor: getCSSvariable('--white') || '#ffffff',
                     borderWidth: 2,
-                    borderDash: [5, 5],
-                    tension: 0.3,
+                    tension: 0.4,
+                    pointStyle: 'triangle',
+                    radius: 4,
                     fill: false,
-                    yAxisID: 'y1',
+                    yAxisID: 'y_primary',
                     order: 2
                 },
                 {
                     type: 'bar',
                     label: 'Tiêu hao than theo nhiệt trị',
                     data: dataNhietri,
-                    backgroundColor: getCSSvariable('--primary-blue') || '#a40db8',
+                    backgroundColor: (context) => {
+                        const val = context.raw;
+                        const avg = dataTrungbinh[context.dataIndex];
+                        if (val > avg) {
+                            return isFlashing ? 'rgba(255, 0, 0, 0.9)' : 'rgba(255, 0, 0, 0.3)';
+                        }
+                        return getCSSvariable('--primary-blue') || '#a40db8';
+                    },
                     borderColor: getCSSvariable('--bg-dark') || '#2c3e50',
                     borderWidth: 1,
-                    yAxisID: 'y',
+                    yAxisID: 'y_secondary',
                     order: 3
                 },
                 {
                     type: 'bar',
                     label: 'Tiêu hao than theo Ccd',
                     data: dataCcd,
-                    backgroundColor: getCSSvariable('--success-green') || '#ed5126',
+                    backgroundColor: (context) => {
+                        const val = context.raw;
+                        const avg = dataTrungbinh[context.dataIndex];
+                        if (val > avg) {
+                            return isFlashing ? 'rgba(255, 0, 0, 0.9)' : 'rgba(255, 0, 0, 0.3)';
+                        }
+                        return getCSSvariable('--success-green') || '#ed5126';
+                    },
                     borderColor: getCSSvariable('--bg-dark') || '#2c3e50',
                     borderWidth: 1,
-                    yAxisID: 'y',
+                    yAxisID: 'y_secondary',
                     order: 4
                 }
             ]
@@ -75,14 +101,14 @@ function drawDashBoardChart(canvasId, labels, dataNhietri, dataCcd, dataTrungbin
             maintainAspectRatio: false,
             interaction: { mode: 'index', intersect: false },
             scales: {
-                y: {
+                y_primary: {
                     type: 'linear', display: true, position: 'left',
-                    title: { display: true, text: 'Tiêu hao/Trung bình' },
+                    title: { display: true, text: 'Tiêu hao trong tháng' },
                     beginAtZero: true
                 },
-                y1: {
+                y_secondary: {
                     type: 'linear', display: true, position: 'right',
-                    title: { display: true, text: 'Tích luỹ' },
+                    title: { display: true, text: 'Tiêu hao trong ngày' },
                     beginAtZero: true,
                     grid: { drawOnChartArea: false }
                 }
@@ -94,65 +120,62 @@ function drawDashBoardChart(canvasId, labels, dataNhietri, dataCcd, dataTrungbin
 
 
 /* =======================================================================
-                    HỆ THỐNG TEST GIAO DIỆN KHI KHÔNG DÙNG API
+                      HỆ THỐNG XỬ LÝ LỌC DỮ LIỆU TK3
    ======================================================================= */
+function applyFilterTK3() {
+    if (!window.originalTK3data) return;
+    const startDateStr = document.getElementById('startDateFilterTK3').value;
+    const endDateStr = document.getElementById('endDateFilterTK3').value;
+    const shiftFilter = document.getElementById('shiftFilterTK3').value;
 
+    const startTimestamp = startDateStr ? new Date(startDateStr).getTime() : null;
+    const endTimestamp = endDateStr ? new Date(endDateStr).getTime() : null;
 
+    let flabels = [], fNhietri = [], fCcd = [], fTrungbinh = [], fTichluy = [];
 
+    window.originalTK3data.labels.forEach((label,index) => {
+        const parts = label.split(' - ');
+        const datePart = parts[0] ? parts[0].trim() : "";
+        const shiftPart = parts[1] ? parts[1].trim() : "";
 
+        let matchDate = true;
+        let matchShift = true;
 
+        if (startTimestamp || endTimestamp) {
+            const [d, m, y] = datePart.split('/');
+            const rowTimestamp = new Date(`${y}-${m}-${d}`).getTime();
 
-
-
-
-
-
-
-   
-
-async function loadCoalConsumeDataTK3() {
-    try {
-        const queryURL = API_KEY_TK3 + '?limit=15';
-
-        const response = await fetch(queryURL);
-        const jsonResponse = await response.json();
-
-        if(!jsonResponse || jsonResponse.status !== "success" || !jsonResponse.data || jsonResponse.data.length === 0){
-            console.log("Data not found or API error");
-            return;
+            if (startTimestamp && rowTimestamp < startTimestamp) matchDate = false;
+            if (endTimestamp && rowTimestamp > endTimestamp) matchDate = false;
         }
 
-        const rows = jsonResponse.data;
-        const labels = [];
-        const dataNhietri = [];
-        const dataCcd = [];
-        const dataTrungbinh = [];
-        const dataTichluy = [];
+        if (shiftFilter !== 'all' && shiftPart !== shiftFilter) {
+            matchShift = false;
+        }
 
-        let currentDate = "";
-        rows.forEach(row => {
-            if(row["Ca/kíp (THthan)"]) {
+        if (matchDate && matchShift) {
+            flabels.push(label);
+            fNhietri.push(window.originalTK3data.dataNhietri[index]);
+            fCcd.push(window.originalTK3data.dataCcd[index]);
+            fTrungbinh.push(window.originalTK3data.dataTrungbinh[index]);
+            fTichluy.push(window.originalTK3data.dataTichluy[index]);
+        }
+    });
+    
+    drawDashBoardChart('coal-chart-tk3', flabels, fNhietri, fCcd, fTrungbinh, fTichluy);
+}
 
-                if(row["Thời gian (THthan)"] && row["Thời gian (THthan)"].trim() !== "") {
-                    currentDate = row["Thời gian (THthan)"];
-                }
-
-                labels.push(`${currentDate} - ${row["Ca/kíp (THthan)"]}`);
-
-                const parseData = (value) => {
-                    if (!value) return 0;
-                    return parseFloat(value.toString().replace(',','.'));
-                }
-
-                dataNhietri.push(parseData(row["Tiêu hao theo nhiệt trị"]));
-                dataCcd.push(parseData(row["Tiêu hao theo Ccd"]));
-                dataTrungbinh.push(parseData(row["Mức trung bình"]));
-                dataTichluy.push(parseData(row["Tiêu hao than tích luỹ (tính theo nhiệt trị)"]));
-            }
-        });
-
-        drawDashBoardChart('coal-chart-tk3', labels, dataNhietri, dataCcd, dataTrungbinh, dataTichluy);
-    } catch (error) {
-        console.error("Lỗi tải dữ liệu TK3", error);
+function clearFilterTK3() {
+    document.getElementById('startDateFilterTK3').value = "";
+    document.getElementById('endDateFilterTK3').value = ""; 
+    document.getElementById('shiftFilterTK3').value="all";
+    if (window.originalTK3data) {
+        drawDashBoardChart('coal-chart-tk3',
+            [...window.originalTK3data.labels],
+            [...window.originalTK3data.dataNhietri],
+            [...window.originalTK3data.dataCcd],
+            [...window.originalTK3data.dataTrungbinh],
+            [...window.originalTK3data.dataTichluy]
+        );
     }
 }
