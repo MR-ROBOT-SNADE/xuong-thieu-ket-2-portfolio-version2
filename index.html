@@ -306,32 +306,40 @@
             <div class="intro-msgs" style="text-align: center; padding: 40px; color: #888;">Mở menu và chọn để xem dữ liệu</div>
             <!--Khu vực hiển thị các thông tin liên quan đến biểu đồ thể hiện tiêu hao than-->
             <div id="tieu-hao-than" class="panel-content chart-group" style="display: none; flex-direction: column; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
-                <div id="sorter-tk3" style="display: flex; gap: 15px; justify-content: center; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); width: 100%;">
+                <div id="sorter-than" style="display: flex; gap: 15px; justify-content: center; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); width: 100%;">
                     <div>
                         <label style="font-weight: bold; margin-right: 5px;">Từ ngày: </label>
-                        <input type="date" id="startTK3" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc; font-family: Roboto;">
+                        <input type="date" id="start" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc; font-family: Roboto;">
                     </div>
                     <div>
                         <label style="font-weight: bold; margin-right: 5px;">Đến ngày: </label>
-                        <input type="date" id="endTK3" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc; font-family: Roboto;">
+                        <input type="date" id="end" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc; font-family: Roboto;">
                     </div>
                     <div>
-                        <label style="font-weight: bold; margin-right: 5px;">Chọn ca/kíp</label>
-                        <select id="shiftTK3" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc; font-family: Roboto;">
+                        <label style="font-weight: bold; margin-right: 5px;">Chọn ca/kíp: </label>
+                        <select id="shift" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc; font-family: Roboto;">
                             <option value="all">Tất cả các ca</option>
                             <option value="A">Kíp A</option>
                             <option value="B">Kíp B</option>
                             <option value="C">Kip C</option>
                         </select>
                     </div>
-                    <button onclick="triggerFilterTK3_Than()" style="padding: 5px 15px; cursor: pointer; background: var(--primar-blue, #0033a1); color: white; border: none; border-radius: 4px; font-weight: bold;">Lọc dữ liệu</button>
-                    <button onclick="clearFilterTK3_Than()" style="padding: 5px 15px; cursor: pointer; background: #95a5a6; color: white; border: none; border-radius: 4px; font-weight: bold;">Xoá lọc</button>
+                    <div>
+                        <label style="font-weight: bold; margin-right: 5px;">Chọn dây chuyền: </label>
+                        <select id="sinterline" style="padding: 5px; border-radius: 4px; border: 1px solid #ccc; font-family: Roboto;">
+                            <option value="all">Dây chuyền 3 + 4</option>
+                            <option value="TK3">Dây chuyền 3</option>
+                            <option value="TK4">Dây chuyền 4</option>
+                        </select>
+                    </div>
+                    <button onclick="triggerFilterThan()" style="padding: 5px 15px; cursor: pointer; background: var(--primar-blue, #0033a1); color: white; border: none; border-radius: 4px; font-weight: bold;">Lọc dữ liệu</button>
+                    <button onclick="clearFilterThan()" style="padding: 5px 15px; cursor: pointer; background: #95a5a6; color: white; border: none; border-radius: 4px; font-weight: bold;">Xoá lọc</button>
                 </div>
-                <div class="coalconsume-chart-tk3" style="width: 100%; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
-                    <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">TIÊU HAO THAN TK3</h3>
+                <div class="coalconsume-chart-nhietri" style="width: 100%; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                    <h3 style="text-align: center; color: var(--primary-blue); font-size: 16px;">TIÊU HAO THAN QUY ĐỔI NHIỆT TRỊ CHUẨN</h3>
 
                     <div style="position: relative; height: 500px; width: 100%">
-                    <canvas id="coal-chart-tk3"
+                    <canvas id="coal-chart-nhietri"
                         style="width: 100%; height: 500px; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 15px;">
                     </canvas>
                     </div>
@@ -771,9 +779,8 @@
     </div>
 <script src="js/api/api_config.js?v=1.0"></script>
 <script src="js/api/api_loaded.js?v=1.1"></script>
-<script src="js/components/chart_core.js?v=1.0"></script>
-<script src="js/components/chart_tk3_package.js?v=1.0"></script>
-<script src="js/components/chart_tk4_package.js?v=1.0"></script>
+<script src="js/components/chart_core.js?v=1.2"></script>
+<script src="js/components/chart_cook.js?v=1.1"></script>
 <script src="js/components/sidebar.js?v=2"></script>
 <script src="js/main/main.js?v=2"></script>
 </body>
