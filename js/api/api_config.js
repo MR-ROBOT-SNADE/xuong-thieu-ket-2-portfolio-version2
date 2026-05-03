@@ -1,6 +1,6 @@
 /* CẤU HÌNH API DỮ LIỆU */
 
-const API_KEY_TK3 = 'https://script.google.com/macros/s/AKfycbzliR5YsRQm9f_s-mBWltvpU8vAqHkZsrOvp12CRSMlGRaCiMSO9dNVleYyPGJ2hwDpHw/exec';
+const API_KEY_TK3 = 'https://script.google.com/macros/s/AKfycbxl2vmeyXEtNXXCsL__sAkOGJ7QqjAKLfUxlmz5h4eDZ4f8Jhs3R7PIg8jCHwUEcrS0Rg/exec';
 const API_KEY_TK4 = '';
 
 

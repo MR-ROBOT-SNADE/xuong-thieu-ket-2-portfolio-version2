@@ -70,12 +70,12 @@ document.addEventListener("DOMContentLoaded", function() {
    =================================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadCoalConsumeDataTK3();
+    loadGoogleSheetData();
 
     const TIME_INTERVAL = 28800000;
 
     setInterval(() => {
-        console.log("Đã qua 6 tiếng. Đang tự động lấy dữ liệu mới từ dữ liệu nguồn");
-        loadCoalConsumeDataTK3();
+        console.log("Đã qua 8 tiếng. Đang tự động lấy dữ liệu mới từ dữ liệu nguồn");
+        loadGoogleSheetData();
     }, TIME_INTERVAL);
 });
