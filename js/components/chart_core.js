@@ -80,7 +80,18 @@ function drawCoalConsumeChart(canvasId, labels, dataNhietri, dataCcd, dataTrungb
                 y_primary: { type: 'linear', position: 'left', title: { display: true, text: 'Trong tháng' } },
                 y_secondary: { type: 'linear', position: 'right', title: { display: true, text: 'Trong ngày' }, grid: { drawOnChartArea: false } }
             },
-            plugins: { datalabels: { display: (ctx) => !isDateFiltered && ctx.chart.data.labels.length <= 60 && ctx.dataset.type === 'bar', align: 'top', anchor: 'end', font: { weight: 'bold', size: 11 } } }
+            plugins: {
+                datalabels: {
+                    display: (ctx) => {
+                        const labels = ctx.chart.data.labels || [];
+                        const uniqueDays = new Set(labels.map(l => String(l).split(' - ')[0].trim())).size;
+                        return uniqueDays <= 15 && ctx.dataset.type === 'bar';
+                    },
+                    align: 'top',
+                    anchor: 'end',
+                    font: { weight: 'bold', size: 11}
+                }
+            }
         }   
     });
 }
