@@ -74,3 +74,49 @@ function showSubContent(contentId) {
     /* Gọi hàm đẩy sidebar ra */
     toggleSidebar();
 }
+
+function closeSidebar() {
+    const drawer = document.querySelector('.side-nav-drawer');
+    const wrapper = document.getElementById('main-wrapper');
+    const backdrop = document.querySelector('.sidebar-backdrop');
+
+    if (drawer) drawer.classList.remove('open');
+    if (wrapper) wrapper.classList.remove('shifted');
+    if (backdrop) backdrop.classList.remove('open');
+}
+
+document.querySelectorAll('.dropdown-content a, .nav-links a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        let targetId = this.getAttribute('href');
+        if(!targetId || !targetId.startsWith('#')) return;
+
+        let targetSection = document.querySelector(targetId);
+        if(targetSection) {
+            e.preventDefault(); 
+
+            // 1. TỰ ĐỘNG ĐÓNG SIDEBAR
+            closeSidebar();
+
+            // 2. KIỂM TRA VÀ ẨN/HIỆN NÚT SIDEBAR
+            const sidebarBtn = document.querySelector('.sidebar-toggle-btn');
+            
+            // Khai báo danh sách các ID của nhóm "SẢN XUẤT - CHẤT LƯỢNG"
+            // Vui lòng sửa lại mảng này cho khớp với các ID thực tế trong file HTML của bạn
+            const allowedTabs = ['#san-luong', '#tieu-hao-sx', '#tab-chat-luong']; 
+
+            if (sidebarBtn) {
+                if (allowedTabs.includes(targetId)) {
+                    sidebarBtn.style.display = 'block'; // Hiện nút nếu đúng tab cho phép
+                } else {
+                    sidebarBtn.style.display = 'none';  // Ẩn nút đi nếu qua tab khác
+                }
+            }
+
+            // 3. Logic chuyển tab cũ của bạn
+            document.querySelectorAll('.page-view').forEach(page => {
+                page.classList.remove('active-view');
+            });
+            targetSection.classList.add('active-view');
+        }
+    });
+});
