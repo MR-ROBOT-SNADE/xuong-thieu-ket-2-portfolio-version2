@@ -148,3 +148,5 @@ function drawCoalConsumeChart(canvasId, labels, dataNhietriTK3, dataNhietriTK4, 
         }   
     });
 }
+
+/* Vẽ biểu đồ tiêu hao trợ dung, tiếp tục */
